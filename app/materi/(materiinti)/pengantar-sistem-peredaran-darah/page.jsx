@@ -5,6 +5,11 @@ import React from "react";
 import Link from "next/link";
 
 export default function Page({ setSidebarOpen }) {
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
     <main className="flex-1 flex flex-col h-full relative w-full">
       {/* Header Mobile */}
@@ -15,7 +20,7 @@ export default function Page({ setSidebarOpen }) {
         >
           <Menu size={20} />
         </button>
-        <span className="font-bold text-sm truncate">
+        <span className="font-bold text-sm truncate text-white">
           Pengantar Sistem Peredaran Darah
         </span>
       </header>
@@ -28,11 +33,12 @@ export default function Page({ setSidebarOpen }) {
           transition={{ duration: 0.3 }}
           className="max-w-3xl mx-auto"
         >
-          <div className="mb-6 flex items-center gap-3 text-red-500">
-            <span className="text-slate-500 text-sm font-mono uppercase tracking-wider">
-              Bab Materi
+          <motion.div variants={itemVariants} className="mb-6">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-bold uppercase tracking-wider shadow-sm shadow-red-900/20">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+              Bab Materi Anatomi
             </span>
-          </div>
+          </motion.div>
 
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-8 border-b border-slate-800 pb-4">
             Pengantar Sistem Peredaran Darah

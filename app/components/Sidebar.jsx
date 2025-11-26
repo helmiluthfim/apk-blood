@@ -8,6 +8,7 @@ import {
   ShieldAlert,
   Menu,
   HeartPulse,
+  Stethoscope,
 } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -31,7 +32,11 @@ export default function Sidebar() {
           title: "Pengantar",
           link: "/materi/pengantar-sistem-peredaran-darah",
         },
-        { id: "jantung", title: "Jantung", link: "/materi/jantung" },
+        {
+          id: "jantung",
+          title: "Jantung",
+          link: "/materi/jantung",
+        },
         { id: "arteri", title: "Arteri", link: "/materi/arteri" },
         { id: "vena", title: "Vena", link: "/materi/vena" },
         { id: "kapiler", title: "Kapiler", link: "/materi/kapiler" },
@@ -43,6 +48,13 @@ export default function Sidebar() {
       title: "Gangguan & Penyakit",
       icons: <ShieldAlert size={20} />,
       link: "/materi/penyakit",
+      option: [],
+    },
+    {
+      id: 3,
+      title: "Upaya & Pencegahan",
+      icons: <Stethoscope size={20} />,
+      link: "/materi/pencegahan",
       option: [],
     },
   ];

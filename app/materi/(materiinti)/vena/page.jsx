@@ -3,7 +3,7 @@ import { Menu, Heart, Shield, Activity, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import React from "react";
 import Image from "next/image";
-import venaImage from "../../../public/vena.jpg";
+import venaImage from "../../../../public/vena.jpg";
 import Link from "next/link";
 
 // Variabel animasi untuk efek muncul bertahap

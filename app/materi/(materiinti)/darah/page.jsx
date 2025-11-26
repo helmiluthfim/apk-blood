@@ -3,7 +3,7 @@ import { Menu, Heart, Shield, Activity, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import React from "react";
 import Image from "next/image";
-import kapilerImage from "../../../public/kapiler.jpg";
+import darahImage from "../../../../public/darah.webp";
 import Link from "next/link";
 
 // Variabel animasi untuk efek muncul bertahap
@@ -35,7 +35,7 @@ export default function Page({ setSidebarOpen }) {
           <Menu size={20} />
         </button>
         <span className="font-bold text-lg tracking-tight text-white">
-          Kapiler.
+          Darah.
         </span>
       </header>
 
@@ -58,33 +58,31 @@ export default function Page({ setSidebarOpen }) {
           {/* Title Section */}
           <motion.div variants={itemVariants} className="mb-10">
             <h1 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400 mb-6 tracking-tight">
-              Pembuluh Kapiler
+              Darah
             </h1>
             <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-3xl border-l-2 border-slate-700 pl-6">
-              Pembuluh kapiler adalah pembuluh darah halus dan sangat kecil yang
-              menghubungkan ujung arteriol (cabang kecil arteri) dengan ujung
-              venula (cabang kecil vena). Fungsi utama kapiler adalah tempat
-              terjadinya pertukaran zat antara darah dan sel-sel tubuh. Kapiler
-              dapat diibaratkan sebagai jembatan penghubung antara sistem
-              pembuluh darah yang membawa darah dari jantung (arteri) dengan
-              sistem yang mengembalikan darah ke jantung (vena).
+              Darah adalah jaringan cair yang berfungsi sebagai alat
+              transportasi utama dalam tubuh manusia. Darah mengedarkan oksigen,
+              zat makanan, hormon, dan antibodi ke seluruh tubuh serta
+              mengangkut sisa metabolisme seperti karbon dioksida (CO₂) dan urea
+              untuk dikeluarkan.
             </p>
           </motion.div>
 
           {/* Main Image Section with Modern Frame */}
-          <motion.div variants={itemVariants} className="mb-12 group">
+          <motion.div variants={itemVariants} className="my-6 group">
             <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 shadow-2xl shadow-black/50">
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-10 opacity-60" />
               <Image
-                src={kapilerImage}
-                alt="Anatomi Jantung"
+                src={darahImage}
+                alt="Visualisasi Komponen Darah"
                 width={2000}
                 height={1000}
                 className="w-full h-[300px] md:h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               <div className="absolute bottom-0 left-0 p-6 z-20">
                 <p className="text-white font-medium text-sm bg-black/50 backdrop-blur-md px-3 py-1 rounded-lg inline-block border border-white/10">
-                  Visualisasi Anatomi Kapiler
+                  Visualisasi Anatomi Darah
                 </p>
               </div>
             </div>
@@ -101,22 +99,36 @@ export default function Page({ setSidebarOpen }) {
                 <Shield size={20} />
               </div>
               <h3 className="text-xl font-bold text-white mb-3">
-                Struktur Kapiler
+                Struktur Darah
               </h3>
               <ul className="space-y-3 text-slate-400 text-sm">
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
                   <span>
-                    <strong>Dinding Sangat Tipis:</strong> Terdiri dari satu
-                    lapisan sel endotelium, memungkinkan pertukaran zat dengan
-                    mudah.
+                    <strong>Sel Darah Merah (Eritrosit):</strong> Berfungsi
+                    mengangkut oksigen dari paru-paru ke seluruh tubuh dan
+                    mengembalikan karbon dioksida ke paru-paru.
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
                   <span>
-                    <strong>Jaringan Jala:</strong> Membentuk jaringan halus
-                    yang menghubungkan arteri dan vena.
+                    <strong>Sel Darah Putih (Leukosit):</strong> Berperan dalam
+                    sistem kekebalan tubuh, melawan infeksi.
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
+                  <span>
+                    <strong>Trombosit:</strong> Terlibat dalam pembekuan darah
+                    dan penyembuhan luka.
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
+                  <span>
+                    <strong>Plasma:</strong> Cairan yang mengangkut sel darah,
+                    nutrisi, hormon, dan limbah.
                   </span>
                 </li>
               </ul>
@@ -137,16 +149,23 @@ export default function Page({ setSidebarOpen }) {
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
                   <span>
-                    <strong>Pertukaran Zat:</strong> Tempat di mana pertukaran
-                    gas (oksigen dan karbon dioksida), nutrisi, dan limbah
-                    terjadi antara darah dan sel-sel tubuh.
+                    <strong>Transportasi:</strong> Mengangkut oksigen, nutrisi,
+                    hormon, dan limbah.
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
                   <span>
-                    <strong>Regulasi Aliran Darah:</strong> Menyesuaikan aliran
-                    darah berdasarkan kebutuhan jaringan.
+                    <strong>Regulasi:</strong> Mengatur suhu tubuh dan
+                    keseimbangan pH.
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                  <span>
+                    <strong>Pertahanan:</strong> Membantu melawan infeksi dan
+                    memperbaiki kerusakan jaringan melalui proses pembekuan
+                    darah.
                   </span>
                 </li>
               </ul>
@@ -158,19 +177,19 @@ export default function Page({ setSidebarOpen }) {
             <div className="flex items-center gap-3 mb-6">
               <div className="h-8 w-1 bg-red-500 rounded-full" />
               <h2 className="text-2xl font-bold text-white">
-                Jenis-jenis Pembuluh Kapiler
+                Gangguan Pada Darah
               </h2>
             </div>
 
             <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
               {/* Desktop Header */}
               <div className="hidden md:grid grid-cols-12 bg-slate-800/50 border-b border-slate-700 text-sm font-semibold text-slate-300 uppercase tracking-wider">
-                <div className="col-span-3 px-6 py-4">Jenis Kapiler</div>
+                <div className="col-span-3 px-6 py-4">Penyakit</div>
                 <div className="col-span-5 px-6 py-4 border-l border-slate-700/50">
                   Penyebab
                 </div>
                 <div className="col-span-4 px-6 py-4 border-l border-slate-700/50">
-                  Dampak Klinis
+                  Dampak
                 </div>
               </div>
 
@@ -178,22 +197,34 @@ export default function Page({ setSidebarOpen }) {
               <div className="divide-y divide-slate-800">
                 {[
                   {
-                    jenis: "Kapiler kontinu",
-                    "ciri-ciri":
-                      "Dindingnya utuh tanpa celah besar, hanya memungkinkan pertukaran molekul kecil",
-                    contoh: "Otot, kulit, otak",
+                    penyakit: "Anemia",
+                    penyebab: "Kekurangan eritrosit atau hemoglobin",
+                    dampak: "Tubuh lemas, mudah lelah",
                   },
                   {
-                    jenis: "Kapiler fenestrata",
-                    "ciri-ciri":
-                      "Memiliki pori-pori kecil (fenestra) untuk melewatkan zat berukuran sedang",
-                    contoh: "Ginjal, usus, kelenjar endokrin",
+                    penyakit: "Leukemia",
+                    penyebab: "Produksi leukosit abnormal (kanker darah)",
+                    dampak: "Imunitas menurun",
                   },
                   {
-                    jenis: "Kapiler sinusoid (disontinu)",
-                    "ciri-ciri":
-                      "Memiliki celah besar di antara sel-sel endotel untuk melewatkan sel darah dan molekul besar",
-                    contoh: "Hati, limpa, sumsum tulang",
+                    penyakit: "Hemofilia",
+                    penyebab: "Kelainan genetik, kekurangan faktor pembekuan",
+                    dampak: "Darah sulit membeku",
+                  },
+                  {
+                    penyakit: "Talasemia",
+                    penyebab: "Kelainan genetik pada hemoglobin",
+                    dampak: "Eritrosit mudah rusak",
+                  },
+                  {
+                    penyakit: "Polisitemia",
+                    penyebab: "Produksi eritrosit berlebihan",
+                    dampak: "Darah menjadi kental",
+                  },
+                  {
+                    penyakit: "Sepsis",
+                    penyebab: "Infeksi berat di aliran darah",
+                    dampak: "Gangguan fungsi organ",
                   },
                 ].map((row, idx) => (
                   <div
@@ -205,28 +236,28 @@ export default function Page({ setSidebarOpen }) {
                     {/* Col 1: Jenis Kapiler */}
                     <div className="col-span-3 px-6 py-4 flex items-center">
                       <div className="md:hidden w-24 shrink-0 text-slate-500 text-xs font-bold uppercase mr-2">
-                        Jenis Kapiler
+                        Penyakit
                       </div>
                       <span className="font-semibold text-white flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-red-500 hidden md:block opacity-0 group-hover:opacity-100 transition-opacity" />
-                        {row.jenis}
+                        {row.penyakit}
                       </span>
                     </div>
 
                     {/* Col 2: Penyebab */}
                     <div className="col-span-5 px-6 py-2 md:py-4 text-slate-400 text-sm md:text-base md:border-l md:border-slate-800/50 flex items-center">
                       <div className="md:hidden w-24 shrink-0 text-slate-500 text-xs font-bold uppercase mr-2">
-                        Ciri-Ciri
+                        Penyebab
                       </div>
-                      {row["ciri-ciri"]}
+                      {row.penyebab}
                     </div>
 
                     {/* Col 3: Dampak */}
                     <div className="col-span-4 px-6 py-2 md:py-4 text-slate-400 text-sm md:text-base md:border-l md:border-slate-800/50 flex items-center mb-2 md:mb-0">
                       <div className="md:hidden w-24 shrink-0 text-slate-500 text-xs font-bold uppercase mr-2">
-                        Contoh Lokasi
+                        Dampak
                       </div>
-                      {row.contoh}
+                      {row.dampak}
                     </div>
                   </div>
                 ))}
@@ -237,13 +268,13 @@ export default function Page({ setSidebarOpen }) {
           <div className="h-32"></div>
           <div className="max-w-3xl mx-auto mt-4 mb-10 flex justify-between items-center gap-4">
             <Link
-              href="/materi/vena"
+              href="/materi/kapiler"
               className="bg-red-600 px-5 py-3 rounded-lg text-white font-medium hover:bg-red-700 transition-colors duration-200"
             >
               ⬅ Previous
             </Link>
             <Link
-              href="/materi/darah"
+              href="/materi/penyakit"
               className="bg-red-600 px-5 py-3 rounded-lg text-white font-medium hover:bg-red-700 transition-colors duration-200"
             >
               next ➜

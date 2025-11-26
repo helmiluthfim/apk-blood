@@ -3,7 +3,7 @@ import { Menu, Heart, Shield, Activity, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import React from "react";
 import Image from "next/image";
-import darahImage from "../../../public/darah.webp";
+import arteriImage from "../../../../public/arteri.jpg";
 import Link from "next/link";
 
 // Variabel animasi untuk efek muncul bertahap
@@ -35,7 +35,7 @@ export default function Page({ setSidebarOpen }) {
           <Menu size={20} />
         </button>
         <span className="font-bold text-lg tracking-tight text-white">
-          Darah.
+          Arteri.
         </span>
       </header>
 
@@ -58,14 +58,18 @@ export default function Page({ setSidebarOpen }) {
           {/* Title Section */}
           <motion.div variants={itemVariants} className="mb-10">
             <h1 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400 mb-6 tracking-tight">
-              Pembuluh Darah
+              Pembuluh Arteri
             </h1>
             <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-3xl border-l-2 border-slate-700 pl-6">
-              Darah adalah jaringan cair yang berfungsi sebagai alat
-              transportasi utama dalam tubuh manusia. Darah mengedarkan oksigen,
-              zat makanan, hormon, dan antibodi ke seluruh tubuh serta
-              mengangkut sisa metabolisme seperti karbon dioksida (CO₂) dan urea
-              untuk dikeluarkan.
+              Arteri adalah pembuluh darah yang membawa darah keluar dari
+              jantung menuju seluruh tubuh. Arteri berfungsi menyalurkan darah
+              beroksigen (darah bersih) dari jantung ke organ dan jaringan
+              tubuh, kecuali arteri pulmonalis yang membawa darah kaya karbon
+              dioksida (CO₂) dari jantung ke paru-paru.
+            </p>
+            <p className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-3xl border-l-2 border-slate-700 pl-6">
+              Jadi, arah aliran darah pada arteri selalu menjauhi jantung, baik
+              membawa darah bersih maupun kotor tergantung jenisnya.
             </p>
           </motion.div>
 
@@ -74,7 +78,7 @@ export default function Page({ setSidebarOpen }) {
             <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 shadow-2xl shadow-black/50">
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-10 opacity-60" />
               <Image
-                src={darahImage}
+                src={arteriImage}
                 alt="Anatomi Jantung"
                 width={2000}
                 height={1000}
@@ -82,7 +86,7 @@ export default function Page({ setSidebarOpen }) {
               />
               <div className="absolute bottom-0 left-0 p-6 z-20">
                 <p className="text-white font-medium text-sm bg-black/50 backdrop-blur-md px-3 py-1 rounded-lg inline-block border border-white/10">
-                  Visualisasi Anatomi Darah
+                  Visualisasi Anatomi Kapiler, Arteri, dan Vena
                 </p>
               </div>
             </div>
@@ -99,36 +103,23 @@ export default function Page({ setSidebarOpen }) {
                 <Shield size={20} />
               </div>
               <h3 className="text-xl font-bold text-white mb-3">
-                Struktur Darah
+                Struktur Arteri
               </h3>
               <ul className="space-y-3 text-slate-400 text-sm">
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
                   <span>
-                    <strong>Sel Darah Merah (Eritrosit):</strong> Berfungsi
-                    mengangkut oksigen dari paru-paru ke seluruh tubuh dan
-                    mengembalikan karbon dioksida ke paru-paru.
+                    <strong>Dinding Tebal:</strong> Memiliki lapisan otot dan
+                    elastin yang memungkinkan arteri untuk menahan tekanan darah
+                    tinggi yang dihasilkan dari kontraksi jantung.
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
                   <span>
-                    <strong>Sel Darah Putih (Leukosit):</strong> Berperan dalam
-                    sistem kekebalan tubuh, melawan infeksi.
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
-                  <span>
-                    <strong>Trombosit:</strong> Terlibat dalam pembekuan darah
-                    dan penyembuhan luka.
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
-                  <span>
-                    <strong>Plasma:</strong> Cairan yang mengangkut sel darah,
-                    nutrisi, hormon, dan limbah.
+                    <strong>Dua Lapisan Utama:</strong> Tunika intima (lapisan
+                    dalam), tunika media (lapisan otot), dan tunika adventitia
+                    (lapisan luar).
                   </span>
                 </li>
               </ul>
@@ -149,23 +140,50 @@ export default function Page({ setSidebarOpen }) {
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
                   <span>
-                    <strong>Transportasi:</strong> Mengangkut oksigen, nutrisi,
-                    hormon, dan limbah.
+                    <strong>Membawa Darah dari Jantung:</strong> Mengangkut
+                    darah kaya oksigen dari jantung ke berbagai bagian tubuh.
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
                   <span>
-                    <strong>Regulasi:</strong> Mengatur suhu tubuh dan
-                    keseimbangan pH.
+                    <strong>Regulasi Tekanan Darah:</strong> Mengatur aliran
+                    darah dan tekanan melalui perubahan diameter arteri.
+                  </span>
+                </li>
+              </ul>
+            </motion.div>
+
+            <motion.div
+              variants={itemVariants}
+              className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 p-6 rounded-2xl hover:border-slate-600 transition-colors group"
+            >
+              <div className="w-10 h-10 rounded-lg bg-rose-500/10 flex items-center justify-center text-rose-400 mb-4 group-hover:bg-rose-500/20 transition-colors">
+                <Heart size={20} />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">
+                Arteri Utama
+              </h3>
+              <ul className="space-y-3 text-slate-400 text-sm">
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0" />
+                  <span>
+                    <strong>Aorta:</strong> Arteri terbesar, keluar dari jantung
+                    dan menyebar ke seluruh tubuh.
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0" />
                   <span>
-                    <strong>Pertahanan:</strong> Membantu melawan infeksi dan
-                    memperbaiki kerusakan jaringan melalui proses pembekuan
-                    darah.
+                    <strong>Arteri koronaria:</strong> Mensuplai darah ke otot
+                    jantung.
+                  </span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0" />
+                  <span>
+                    <strong>Arteri pulmonalis:</strong> Membawa darah dari
+                    jantung ke paru-paru (unik karena darahnya miskin oksigen).
                   </span>
                 </li>
               </ul>
@@ -177,7 +195,7 @@ export default function Page({ setSidebarOpen }) {
             <div className="flex items-center gap-3 mb-6">
               <div className="h-8 w-1 bg-red-500 rounded-full" />
               <h2 className="text-2xl font-bold text-white">
-                Gangguan Pada Darah
+                Gangguan Pada Arteri
               </h2>
             </div>
 
@@ -197,34 +215,25 @@ export default function Page({ setSidebarOpen }) {
               <div className="divide-y divide-slate-800">
                 {[
                   {
-                    penyakit: "Anemia",
-                    penyebab: "Kekurangan eritrosit atau hemoglobin",
-                    dampak: "Tubuh lemas, mudah lelah",
+                    penyakit: "Aterosklerosis",
+                    penyebab: "Penumpukan lemak (plak) di dinding arteri",
+                    dampak:
+                      "Penyempitan pembuluh darah, aliran darah terhambat",
                   },
                   {
-                    penyakit: "Leukemia",
-                    penyebab: "Produksi leukosit abnormal (kanker darah)",
-                    dampak: "Imunitas menurun",
+                    penyakit: "Arteriosklerosis",
+                    penyebab: "Kekakuan arteri akibat penuaan",
+                    dampak: "Menurunkan elastisitas pembuluh",
                   },
                   {
-                    penyakit: "Hemofilia",
-                    penyebab: "Kelainan genetik, kekurangan faktor pembekuan",
-                    dampak: "Darah sulit membeku",
+                    penyakit: "Aneurisma",
+                    penyebab: "Pelebaran atau penonjolan dinding arteri",
+                    dampak: "Risiko pecahnya pembuluh darah",
                   },
                   {
-                    penyakit: "Talasemia",
-                    penyebab: "Kelainan genetik pada hemoglobin",
-                    dampak: "Eritrosit mudah rusak",
-                  },
-                  {
-                    penyakit: "Polisitemia",
-                    penyebab: "Produksi eritrosit berlebihan",
-                    dampak: "Darah menjadi kental",
-                  },
-                  {
-                    penyakit: "Sepsis",
-                    penyebab: "Infeksi berat di aliran darah",
-                    dampak: "Gangguan fungsi organ",
+                    penyakit: "Penyakit jantung koroner",
+                    penyebab: "Penyumbatan arteri koroner jantung",
+                    dampak: "Menghambat suplai oksigen ke otot jantung",
                   },
                 ].map((row, idx) => (
                   <div
@@ -268,13 +277,13 @@ export default function Page({ setSidebarOpen }) {
           <div className="h-32"></div>
           <div className="max-w-3xl mx-auto mt-4 mb-10 flex justify-between items-center gap-4">
             <Link
-              href="/materi/kapiler"
+              href="/materi/jantung"
               className="bg-red-600 px-5 py-3 rounded-lg text-white font-medium hover:bg-red-700 transition-colors duration-200"
             >
               ⬅ Previous
             </Link>
             <Link
-              href="/materi/penyakit"
+              href="/materi/vena"
               className="bg-red-600 px-5 py-3 rounded-lg text-white font-medium hover:bg-red-700 transition-colors duration-200"
             >
               next ➜
