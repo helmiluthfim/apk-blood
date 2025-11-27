@@ -1,26 +1,43 @@
 "use client";
-import { Menu, Heart, Shield, Activity, ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
-import React from "react";
+import { Menu, Heart, Shield, Activity, X } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import venaImage from "../../../../public/vena.jpg";
 import Link from "next/link";
 
-// Variabel animasi untuk efek muncul bertahap
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
-
 export default function Page({ setSidebarOpen }) {
+  // State untuk mengontrol apakah gambar ditampilkan full screen atau tidak
+  const [isImageFullscreen, setIsImageFullscreen] = useState(false);
+
+  // Effect untuk mengunci scroll body saat mode fullscreen aktif
+  useEffect(() => {
+    if (isImageFullscreen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    // Cleanup saat komponen unmount
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isImageFullscreen]);
+
+  // Variabel animasi untuk efek muncul bertahap
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
     <main className="flex-1 flex flex-col h-full relative w-full bg-slate-950 text-slate-200 selection:bg-red-500/30">
       {/* Background Gradient Spot - Memberikan atmosfer kedalaman */}
@@ -69,20 +86,24 @@ export default function Page({ setSidebarOpen }) {
             </p>
           </motion.div>
 
-          {/* Main Image Section with Modern Frame */}
+          {/* Tempat gambar Original */}
           <motion.div variants={itemVariants} className="mb-12 group">
-            <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 shadow-2xl shadow-black/50">
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-10 opacity-60" />
+            {/* Tambahkan onClick dan cursor-pointer pada wrapper gambar */}
+            <div
+              onClick={() => setIsImageFullscreen(true)}
+              className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 shadow-2xl shadow-black/50 cursor-pointer"
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-10 opacity-60 pointer-events-none" />
               <Image
                 src={venaImage}
-                alt="Anatomi Jantung"
+                alt="Anatomi Darah"
                 width={2000}
                 height={1000}
                 className="w-full h-[300px] md:h-[400px] object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
               />
-              <div className="absolute bottom-0 left-0 p-6 z-20">
+              <div className="absolute bottom-0 left-0 p-6 z-20 pointer-events-none">
                 <p className="text-white font-medium text-sm bg-black/50 backdrop-blur-md px-3 py-1 rounded-lg inline-block border border-white/10">
-                  Visualisasi Anatomi Vena
+                  Klik untuk memperbesar Visualisasi
                 </p>
               </div>
             </div>
@@ -265,17 +286,66 @@ export default function Page({ setSidebarOpen }) {
               href="/materi/arteri"
               className="bg-red-600 px-5 py-3 rounded-lg text-white font-medium hover:bg-red-700 transition-colors duration-200"
             >
-              ⬅ Previous
+              ⬅ Prev
             </Link>
             <Link
               href="/materi/kapiler"
               className="bg-red-600 px-5 py-3 rounded-lg text-white font-medium hover:bg-red-700 transition-colors duration-200"
             >
-              next ➜
+              Next ➜
             </Link>
           </div>
         </motion.div>
       </div>
+
+      {/* --- MODAL FULLSCREEN --- */}
+      {/* AnimatePresence memungkinkan animasi saat komponen dihapus dari DOM */}
+      <AnimatePresence>
+        {isImageFullscreen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            // Klik pada background gelap untuk menutup
+            onClick={() => setIsImageFullscreen(false)}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 md:p-8 backdrop-blur-sm"
+          >
+            {/* Tombol Close (X) */}
+            <button
+              // Hentikan propagasi agar klik tombol tidak dianggap klik background
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsImageFullscreen(false);
+              }}
+              className="absolute top-4 right-4 z-10 p-2 bg-slate-800/80 text-white rounded-full hover:bg-red-600 transition-colors border border-white/20"
+            >
+              <X size={28} />
+            </button>
+
+            {/* Container Gambar Fullscreen */}
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              // Hentikan propagasi agar klik pada gambar tidak menutup modal
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full h-full max-w-6xl max-h-[90vh] flex items-center justify-center rounded-lg overflow-hidden"
+            >
+              <Image
+                src={venaImage}
+                alt="Anatomi Jantung Fullscreen"
+                fill // Menggunakan fill agar responsif mengisi container modal
+                className="object-contain" // Pastikan seluruh gambar terlihat tanpa terpotong
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 95vw, 1200px"
+                priority // Prioritaskan pemuatan gambar ini saat modal dibuka
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      {/* --- END MODAL FULLSCREEN --- */}
     </main>
   );
 }
