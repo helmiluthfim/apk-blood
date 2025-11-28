@@ -227,17 +227,14 @@ export default function Sidebar() {
           })}
         </div>
 
-        {/* FOOTER / USER PROFILE */}
-        <div className="p-4 border-t border-slate-800 bg-slate-950">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-red-500 to-orange-500 flex items-center justify-center text-xs font-bold text-white">
-              S
-            </div>
-            <div className="text-xs">
-              <p className="text-white font-medium">Siswa</p>
-              <p className="text-slate-500">XI IPA 2</p>
-            </div>
-          </div>
+        {/* FOOTER / APP INFO */}
+        <div className="p-4 border-t border-slate-800 bg-slate-950 text-center">
+          <p className="text-xs font-semibold text-slate-400">
+            Blood Flow v1.1.0
+          </p>
+          <p className="text-[10px] text-slate-600 mt-1">
+            © 2024 Hak Cipta Dilindungi.
+          </p>
         </div>
       </aside>
     </>

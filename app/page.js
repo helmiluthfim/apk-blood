@@ -18,7 +18,7 @@ export default function Home() {
         className="z-10 max-w-2xl w-full"
       >
         <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-500 to-blue-500 mb-4">
-          Sistem Peredaran Darah
+          Blood Flow
         </h1>
         <p className="text-slate-400 mb-12 text-lg">
           Media Pembelajaran Interaktif Tubuh Manusia
