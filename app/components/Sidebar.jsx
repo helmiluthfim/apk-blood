@@ -9,6 +9,7 @@ import {
   Menu,
   HeartPulse,
   Stethoscope,
+  Home, // 1. Menambahkan import icon Home
 } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -16,7 +17,6 @@ import { usePathname } from "next/navigation";
 
 export default function Sidebar() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-  // Menghapus tipe generic <number | null> karena ini JSX
   const [activeMenu, setActiveMenu] = useState(null);
   const pathname = usePathname();
 
@@ -225,6 +225,32 @@ export default function Sidebar() {
               </div>
             );
           })}
+
+          {/* 2. Tombol Kembali ke Menu Awal (Beranda) */}
+          <Link
+            href="/"
+            onClick={() => setSidebarOpen(false)}
+            className={clsx(
+              "flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 group mb-6", // mb-6 untuk jarak pemisah
+              pathname === "/"
+                ? "bg-red-600 text-white shadow-md shadow-red-900/20"
+                : "text-slate-400 hover:bg-slate-900 hover:text-slate-100"
+            )}
+          >
+            <span
+              className={clsx(
+                pathname === "/"
+                  ? "text-white"
+                  : "text-slate-500 group-hover:text-slate-300"
+              )}
+            >
+              <Home size={20} />
+            </span>
+            <span className="text-sm font-medium">
+              Kembali Ke Halaman Utama
+            </span>
+          </Link>
+          {/* Batas penambahan tombol */}
         </div>
 
         {/* FOOTER / APP INFO */}
@@ -233,7 +259,7 @@ export default function Sidebar() {
             Blood Flow v1.1.0
           </p>
           <p className="text-[10px] text-slate-600 mt-1">
-            © 2024 Hak Cipta Dilindungi.
+            © 2025 Hak Cipta Dilindungi.
           </p>
         </div>
       </aside>
